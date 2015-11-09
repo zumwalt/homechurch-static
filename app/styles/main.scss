@@ -1,0 +1,624 @@
+// bower:scss
+// endbower
+
+//  8888888 888b     d888 8888888b.   .d88888b.  8888888b. 88888888888 .d8888b.
+//    888   8888b   d8888 888   Y88b d88P" "Y88b 888   Y88b    888    d88P  Y88b
+//    888   88888b.d88888 888    888 888     888 888    888    888    Y88b.
+//    888   888Y88888P888 888   d88P 888     888 888   d88P    888     "Y888b.
+//    888   888 Y888P 888 8888888P"  888     888 8888888P"     888        "Y88b.
+//    888   888  Y8P  888 888        888     888 888 T88b      888          "888
+//    888   888   "   888 888        Y88b. .d88P 888  T88b     888    Y88b  d88P
+//  8888888 888       888 888         "Y88888P"  888   T88b    888     "Y8888P"
+
+    @import "normalize";
+
+//  888     888     d8888 8888888b.  8888888        d8888 888888b.   888      8888888888 .d8888b.
+//  888     888    d88888 888   Y88b   888         d88888 888  "88b  888      888       d88P  Y88b
+//  888     888   d88P888 888    888   888        d88P888 888  .88P  888      888       Y88b.
+//  Y88b   d88P  d88P 888 888   d88P   888       d88P 888 8888888K.  888      8888888    "Y888b.
+//   Y88b d88P  d88P  888 8888888P"    888      d88P  888 888  "Y88b 888      888           "Y88b.
+//    Y88o88P  d88P   888 888 T88b     888     d88P   888 888    888 888      888             "888
+//     Y888P  d8888888888 888  T88b    888    d8888888888 888   d88P 888      888       Y88b  d88P
+//      Y8P  d88P     888 888   T88b 8888888 d88P     888 8888888P"  88888888 8888888888 "Y8888P"
+    
+    // Colors
+    // --------------------------------------------------
+    $bg: #1D2123;
+
+    $gold: #c7a262;
+
+    $black: #222;
+    $white: #FFF;
+
+    // Fonts
+    // --------------------------------------------------
+    $sans: "acumin-pro-semi-condensed", "Arial Narrow", "Helvetica Neue", Helvetica, sans-serif;
+    $serif: "freight-text-pro", georgia, serif;
+    $display: "freight-big-pro", georgia, serif;
+
+    // Media queries
+    // --------------------------------------------------
+    $bp_smaller: 480px;
+    $bp_small: 768px;
+    $bp_medium: 1024px;
+    $bp_large: 1440px;
+    $bp_xlarge: 1680px;
+    $bp_huge: 2000px;
+
+//  888b     d888 8888888 Y88b   d88P 8888888 888b    888  .d8888b.
+//  8888b   d8888   888    Y88b d88P    888   8888b   888 d88P  Y88b
+//  88888b.d88888   888     Y88o88P     888   88888b  888 Y88b.
+//  888Y88888P888   888      Y888P      888   888Y88b 888  "Y888b.
+//  888 Y888P 888   888      d888b      888   888 Y88b888     "Y88b.
+//  888  Y8P  888   888     d88888b     888   888  Y88888       "888
+//  888   "   888   888    d88P Y88b    888   888   Y8888 Y88b  d88P
+//  888       888 8888888 d88P   Y88b 8888888 888    Y888  "Y8888P"
+
+    // Media Queries
+    // --------------------------------------------------
+    @mixin media-min-huge {
+      @media only screen and (min-width: $bp_huge) {
+        @content;
+      }
+    }
+
+    @mixin media-min-xlarge {
+      @media only screen and (min-width: $bp_xlarge) {
+        @content;
+      }
+    }
+
+    @mixin media-min-large {
+      @media only screen and (min-width: $bp_large) {
+        @content;
+      }
+    }
+
+    @mixin media-min-medium {
+      @media only screen and (min-width: $bp_medium) {
+        @content;
+      }
+    }
+
+    @mixin media-max-medium {
+      @media only screen and (max-width: $bp_medium - 1) {
+        @content;
+      }
+    }
+
+    @mixin media-min-small {
+      @media only screen and (min-width: $bp_small) {
+        @content;
+      }
+    }
+
+    @mixin media-max-small {
+      @media only screen and (max-width: $bp_small - 1) {
+        @content;
+      }
+    }
+
+    @mixin media-min-smaller {
+      @media only screen and (min-width: $bp_smaller) {
+        @content;
+      }
+    }
+
+    // Clearfix
+    // --------------------------------------------------
+    %clearfix {
+      *zoom: 1;
+      &:before, &:after {
+        content: " ";
+        display: table;
+      }
+      &:after {
+        clear: both;
+      }
+    }
+
+    @mixin clearfix {
+        *zoom: 1;
+        &:before, &:after {
+          content: " ";
+          display: table;
+        }
+        &:after {
+          clear: both;
+        }
+    }
+
+    // Truncate text
+    // --------------------------------------------------
+    %truncate {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @mixin truncate {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    // Unselectable
+    // --------------------------------------------------
+    @mixin unselectable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    // Visually hidden
+    // --------------------------------------------------
+    %visuallyhidden {
+      margin: -1px;
+      padding: 0;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip: rect(0, 0, 0, 0);
+      position: absolute;
+    }
+
+    // Positioning
+    // --------------------------------------------------
+
+    @mixin absolute-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    @mixin horizontal-center {
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    @mixin vertical-center {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+
+//  888888b.         d8888  .d8888b.  8888888888
+//  888  "88b       d88888 d88P  Y88b 888
+//  888  .88P      d88P888 Y88b.      888
+//  8888888K.     d88P 888  "Y888b.   8888888
+//  888  "Y88b   d88P  888     "Y88b. 888
+//  888    888  d88P   888       "888 888
+//  888   d88P d8888888888 Y88b  d88P 888
+//  8888888P" d88P     888  "Y8888P"  8888888888
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-size: 1rem;
+    font-family: $serif;
+    background: $bg linear-gradient(45deg, transparent 60%,rgba(black,0.65) 100%) no-repeat fixed;
+  }
+
+  // --------------------------------------------------
+  // Typography
+  // --------------------------------------------------
+
+    // Headers
+    // --------------------------------------------------
+      @for $i from 1 to 6 {
+        h#{$i} {
+          margin: 0;
+          font-weight: 400;
+          font-family: $display;
+        }
+      }
+
+      h1 {
+        font-size: 2.2175rem;
+        font-weight: 300;
+        line-height: 1;
+
+        @include media-min-small {
+          font-size: 3.875rem;
+        }
+      }
+
+    // Paragraphs, copy blocks
+    // --------------------------------------------------
+      p {
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+    // Links
+    // --------------------------------------------------
+      a {
+        font-family: $sans;
+        text-decoration: none;
+        font-weight: 300;
+        color: $gold;
+      }
+
+    // Icons
+    // --------------------------------------------------
+      .icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+      }
+
+
+
+//  888             d8888 Y88b   d88P  .d88888b.  888     888 88888888888
+//  888            d88888  Y88b d88P  d88P" "Y88b 888     888     888
+//  888           d88P888   Y88o88P   888     888 888     888     888
+//  888          d88P 888    Y888P    888     888 888     888     888
+//  888         d88P  888     888     888     888 888     888     888
+//  888        d88P   888     888     888     888 888     888     888
+//  888       d8888888888     888     Y88b. .d88P Y88b. .d88P     888
+//  88888888 d88P     888     888      "Y88888P"   "Y88888P"      888
+    
+    // Containers
+    // --------------------------------------------------
+      ._c {
+        padding: 1rem;
+
+        ._collapse {
+          margin-left: -1rem;
+          margin-right: -1rem;
+        }
+      }
+
+
+//  888b     d888  .d88888b.  8888888b.  888     888 888      8888888888 .d8888b.
+//  8888b   d8888 d88P" "Y88b 888  "Y88b 888     888 888      888       d88P  Y88b
+//  88888b.d88888 888     888 888    888 888     888 888      888       Y88b.
+//  888Y88888P888 888     888 888    888 888     888 888      8888888    "Y888b.
+//  888 Y888P 888 888     888 888    888 888     888 888      888           "Y88b.
+//  888  Y8P  888 888     888 888    888 888     888 888      888             "888
+//  888   "   888 Y88b. .d88P 888  .d88P Y88b. .d88P 888      888       Y88b  d88P
+//  888       888  "Y88888P"  8888888P"   "Y88888P"  88888888 8888888888 "Y8888P"
+    
+    // --------------------------------------------------
+    // Global Stuff
+    // --------------------------------------------------
+
+      // Header
+      // --------------------------------------------------
+        .global--header {
+          padding: 1rem;
+          position: relative;
+        }
+
+        // Brand
+        .brand {
+          display: inline-block;
+        }
+        #brand {
+          height: 40px;
+          width: 70px;
+          position: relative;
+          top: 3px;
+        }
+
+      // Nav
+      // --------------------------------------------------
+        .global--navigation {
+          @include media-max-small {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(black, 0.9);
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            z-index: 9;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            transform: scale(1.1);
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            
+            nav {
+              display: flex;
+              flex-flow: column nowrap;
+              justify-content: center;
+              align-items: center;
+            }
+
+            a {
+              display: inline-block;
+              font-size: 1.5rem;
+              font-weight: 300;
+              padding: 0;
+              position: relative;
+              margin: 10px 0;
+              
+              &::before {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: rgba($gold, .25);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                transition: all 0.2s ease;
+              }
+
+              &:hover,
+              &.active {
+                color: $white;
+
+                &::before {
+                  background: $gold;
+                }
+              }
+            }
+          }
+        }
+
+        // Control
+        .mobile--nav-control {
+          z-index: 10;
+          @include vertical-center;
+          right: 1rem;
+          width: 20px;
+          height: 16px;
+
+          span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: $gold;
+            position: absolute;
+            transition: all 0.4s ease;
+
+            &:nth-child(1) {
+              top: 0;
+              left: 0;
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+              @include absolute-center;
+            }
+
+            &:nth-child(4) {
+              bottom: 0;
+              left: 0;
+            }
+          }
+        }
+
+        // Mobile nav open
+        // --------------------------------------------------
+        .--mobile-nav-open {
+          .global--navigation {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+          }
+
+          .mobile--nav-control {
+            span {
+              &:nth-child(1),
+              &:nth-child(4) {
+                opacity: 0;
+              }
+
+              &:nth-child(1) {
+                top: -20px;
+              }
+
+              &:nth-child(2) {
+                bottom: -20px;
+              }
+
+              &:nth-child(2) {
+                transform: translate(-50%,-50%)rotate(-45deg);
+              }
+              &:nth-child(3) {
+                transform: translate(-50%,-50%)rotate(45deg);
+              }
+            }
+          }
+        }
+
+      // Footer
+      // --------------------------------------------------
+        .global--footer {
+
+        }
+
+        .nav-footer {
+          text-align: center;
+
+          a {
+            display: inline-block;
+            font-size: 1.2rem;
+            padding: 8px;
+          }
+        }
+
+    // --------------------------------------------------
+    // View specifics
+    // --------------------------------------------------
+
+    // Hero
+    // --------------------------------------------------
+      .hero {
+        color: $white;
+        padding-bottom: 0;
+
+        .hero--action {
+          display: inline-block;
+          // background: rgba(black, 0.15);
+          border-radius: 3px;
+          margin-top: 1rem;
+          font-size: 1.175rem;
+          position: relative;
+          
+          &::before {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: $gold;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            transition: all 0.2s ease;
+          }
+
+          &:hover {
+            color: $white;
+
+            &::before {
+              height: 4px;
+            }
+          }
+        }
+      }
+
+      // Hero feature
+      .hero--feature {
+        background: black url('../images/coffee.jpg') no-repeat center center / cover;
+        margin-top: 3rem;
+        min-height: 100vw;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        &::before {
+          background: black;
+          opacity: 0.5;
+        }
+
+        &::after {
+          background: linear-gradient(135deg, transparent 0%,rgba(black,1) 100%) no-repeat
+        }
+
+        .content {
+          @include absolute-center;
+          width: 100%;
+          z-index: 2;
+          font-size: 1.175rem;
+
+          .title {
+            font-size: 2.125rem;
+          }
+
+          p {
+            color: rgba($white, 0.6);
+            font-family: $sans;
+            line-height: 1.2;
+            margin: 5px 0;
+          }
+        }
+      }
+
+    // Highlights nav
+    // --------------------------------------------------
+      .highlights {
+        a {
+          display: block;
+          padding: 0 1rem;
+          line-height: 4rem;
+          font-size: 1.375rem;
+          color: $white;
+        }
+
+        .nav-about {
+          background: darken($gold, 15%);
+        }
+
+        .nav-giving {
+          background: $gold;
+        }
+      }
+
+  // --------------------------------------------------
+  // Sections
+  // --------------------------------------------------
+
+    // Meet our team
+    // --------------------------------------------------
+      .section--our-team {
+        background: rgba(black, .5);
+        color: $white;
+        height: 50vw;
+        position: relative;
+
+        .headshot {
+          width: 50vw;
+          height: 50vw;
+          background-size: cover;
+          background-position: center center;
+          opacity: 0.75;
+        }
+        .content {
+          width: 50vw;
+          @include vertical-center;
+          left: 50vw;
+
+          small {
+            font-family: $sans;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba($white,.3);
+          }
+
+          .name {
+            font-family: $sans;
+          }
+
+          .title {
+            font-style: italic;
+            color: rgba($white, .6);
+          }
+          
+          a {
+            display: block;
+            margin-top: 5px;
+          }
+        }
+      }
