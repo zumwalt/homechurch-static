@@ -277,6 +277,14 @@
           font-size: 5.5rem;
           line-height: 0.9em;
         }
+
+        @include media-min-large {
+          font-size: 3.75rem;
+        }
+
+        @include media-min-xlarge {
+          font-size: 5.5rem;
+        }
       }
 
     // Paragraphs, copy blocks
@@ -308,6 +316,49 @@
         height: 1em;
         fill: currentColor;
       }
+
+  // Forms
+  // --------------------------------------------------
+
+    .input {
+      margin-bottom: .5rem;
+      position: relative;
+
+      input {
+        border: 0;
+        border-radius: 3px;
+        display: block;
+        padding: .5rem .75rem;
+        width: 100%;
+        font-family: $sans;
+      }
+
+      label {
+        font-family: $sans;
+        position: absolute;
+        @include vertical-center;
+        left: .75rem;
+      }
+    }
+
+    .form-actions {
+      button {
+        background: $gold;
+        color: $white;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: $sans;
+        border: 0;
+        border-radius: 3px;
+        padding: .5rem .75rem;
+        text-align: center;
+        width: 100%;
+
+        &:hover {
+          background: lighten($gold, 5%);
+        }
+      }
+    }
 
 
 
@@ -485,12 +536,22 @@
 
               a {
                 font-size: 1.15rem;
-                color: rgba($white, 0.6);
+                color: rgba($gold, 0.8);
                 margin: 0 15px;
 
                 &:hover {
-                  color: $white;
+                  color: $gold;
                 }
+              }
+            }
+
+            // Inverted nav
+            // --------------------------------------------------
+            &.inverted nav a {
+              color: rgba($white, 0.6);
+
+              &:hover {
+                color: $white;
               }
             }
           }
@@ -577,7 +638,52 @@
         .global--footer {
           @include media-min-medium {
             clear: both;
-            padding: 2rem 0;
+          }
+        }
+
+        .mailing-list {
+          background: #333;
+
+          p {
+            color: rgba($white, 0.5);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-family: $sans;
+
+            @include media-min-small {
+              br {
+                display: none;
+              }
+            }
+          }
+
+          form {
+            @include clearfix;
+            max-width: 600px;
+            margin: 0 auto;
+          }
+
+          .input, .form-actions {
+            @include media-min-small {
+              float: left;
+            }
+          }
+
+          .form-actions {
+            @include media-min-small {
+              width: 100px;
+              margin-left: 20px;
+            }
+          }
+
+          .input {
+            @include media-min-small {
+              width: calc(50% - 70px);
+
+              &:first-of-type {
+                margin-right: 20px;
+              }
+            }
           }
         }
 
@@ -668,6 +774,7 @@
         }
 
         @include media-min-large {
+          background: black url('../images/coffee.jpg') fixed no-repeat top right / auto 100vh;
           margin: 0 !important;
         }
 
@@ -887,5 +994,60 @@
               font-size: 1.175rem;
             }
           }
+        }
+      }
+
+    // --------------------------------------------------
+    // Interior template
+    // --------------------------------------------------
+      .view--interior {
+        background: $white;
+        color: $black;
+
+        .mailing-list {
+          background: $white;
+          color: $black;
+        }
+      }
+
+      .view-header {
+        text-align: center;
+
+        h1 {
+          font-weight: 400;
+        }
+      }
+
+      .view-content {
+
+        .break {
+          text-align: center;
+          font-family: $sans;
+          font-weight: 600;
+          color: $gold;
+        }
+      }
+
+      blockquote {
+        @extend ._c;
+        @extend ._collapse;
+        background: $gold;
+        color: $white;
+        text-align: center;
+
+        small {
+          color: rgba($white, 0.6);
+          font-family: $sans;
+          font-weight: 600;
+        }
+
+        p {
+          font-family: $display;
+          font-size: 1.5rem;
+          line-height: 1.2;
+        }
+
+        &:nth-child(2n+1) {
+          background: $black;
         }
       }
