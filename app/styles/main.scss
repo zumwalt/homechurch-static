@@ -545,26 +545,46 @@
 
               a {
                 font-size: 1.15rem;
-                color: rgba($gold, 0.8);
+                color: $gold;
                 margin: 0 15px;
+                font-weight: 400;
+                position: relative;
+
+                &:after {
+                  content: '';
+                  position: absolute;
+                  bottom: -4px;
+                  height: 2px;
+                  width: 100%;
+                  background: $gold;
+                  left: 0;
+                  opacity: 0;
+                  transition: all 0.3s ease;
+                }
 
                 &:hover {
                   color: $gold;
+                  
+                  &:after {
+                    opacity: 1;
+                  }
                 }
-              }
-            }
-
-            // Inverted nav
-            // --------------------------------------------------
-            &.inverted nav a {
-              color: rgba($white, 0.6);
-
-              &:hover {
-                color: $white;
               }
             }
           }
           
+        }
+
+        // Inverted nav
+        // --------------------------------------------------
+        .inverted .global--navigation nav a {
+          @include media-min-small {
+            color: rgba($white, 0.6);
+
+            &:hover {
+              color: $white;
+            }
+          }
         }
 
         // Control
