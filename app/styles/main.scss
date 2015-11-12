@@ -566,7 +566,8 @@
                   transition: all 0.3s ease;
                 }
 
-                &:hover {
+                &:hover,
+                &.active {
                   color: $gold;
                   
                   &:after {
@@ -585,7 +586,8 @@
           @include media-min-small {
             color: rgba($white, 0.6);
 
-            &:hover {
+            &:hover,
+            &.active {
               color: $white;
             }
           }
@@ -1233,6 +1235,11 @@
         height: 50vw;
         position: relative;
 
+        @include media-min-large {
+          width: 25vw;
+          height: 25vw;
+        }
+
         .headshot {
           @include absolute-center;
           height: 100%;
@@ -1253,6 +1260,11 @@
           font-family: $sans;
           line-height: 1.2;
           transition: all 0.3s ease;
+
+          @include media-min-small {
+            padding: 2rem;
+            font-size: 1.25rem;
+          }
 
           &::before {
             content: '';
@@ -1284,6 +1296,11 @@
         &:hover {
           .member-info {
             padding-bottom: 1.5rem;
+
+            @include media-min-small {
+              padding-bottom: 3.5rem;
+            }
+
             &::before {
               height: 200%;
             }
