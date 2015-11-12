@@ -1,1 +1,1 @@
-"use strict";console.log("Welcome to Home Church!"),function(o){function e(){var e=o(".mobile--nav-control");e.on("click",function(e){e.preventDefault(),console.log("mobile-nav toggle"),o("body").toggleClass("--mobile-nav-open")})}o(document).ready(function(){e()})}(jQuery);
+"use strict";console.log("Welcome to Home Church!"),function(o){function n(){function n(){o("body").toggleClass("-mobile-nav-open")}var e=o(".mobile--nav-control");e.on("click tap",function(o){o.preventDefault(),n()})}o(document).ready(function(){n()})}(jQuery);
