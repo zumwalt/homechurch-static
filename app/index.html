@@ -19,9 +19,6 @@
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
-    <script src="https://use.typekit.net/ged2eeh.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
   </head>
   <body class="view--home">
     <!--[if lt IE 10]>
@@ -83,7 +80,8 @@
         <div class="hero--feature _collapse">
           <div class="content _c">
             <h2 class="title">Join Us</h2>
-            <p>10am Sundays<br/> at Refinery Nashville</p>
+            <p>10am Sundays</p>
+            <p>at Refinery Nashville</p>
             <a href="#">More Information</a>
           </div>
         </div>
@@ -142,8 +140,23 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bigtext/dist/bigtext.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script>
+    $(function() {
+        WebFont.load({
+            typekit: {
+                id: 'ged2eeh'
+            },
+            active: function() {
+                $('.hero--feature .content').bigtext();
+            }
+        });
+    });
+    </script>
     
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>

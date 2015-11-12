@@ -265,6 +265,10 @@
         font-weight: 300;
         line-height: 1;
 
+        @media screen and (min-width: 375px) {
+          font-size: 2.575rem;
+        }
+
         @include media-min-smaller {
           font-size: 3rem;
         }
@@ -632,7 +636,7 @@
 
         // Mobile nav open
         // --------------------------------------------------
-        .--mobile-nav-open {
+        .-mobile-nav-open {
           .global--navigation {
             opacity: 1;
             pointer-events: auto;
@@ -766,10 +770,6 @@
               padding: 0 3rem;
               left: 0;
             }
-
-            .title {
-              text-shadow: 0 2px 4px rgba(black, 1 );
-            }
           }
         }
 
@@ -805,7 +805,7 @@
         }
 
         @include media-min-large {
-          background: black url('../images/coffee.jpg') fixed no-repeat top right / auto 100vh;
+          background: black url('../images/coffee.jpg') fixed no-repeat top right / 50%;
           margin: 0 !important;
         }
 
@@ -830,36 +830,30 @@
         }
 
         .content {
-          @include absolute-center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%) scale(.75);
           width: 100%;
           z-index: 2;
-          font-size: 1.175rem;
+          width: 200px;
+          border-top: 4px solid transparent;
+          border-bottom: 4px solid transparent;
+          padding: .75rem 0 2rem;
 
           @include media-min-medium {
-            font-size: 1.5rem;
+            border-top: 4px solid rgba($white, 0.3);
+            border-bottom: 4px solid rgba($white, 0.3);
+            transform: translate(-50%,-50%) scale(1);
           }
 
-          @include media-min-large {
-            text-align: center;
-          }
 
           .title {
-            font-size: 2.125rem;
-
-            @include media-min-smaller {
-              font-size: 3rem;
-            }
-
-            @include media-min-medium {
-              font-size: 3.5rem;
-            }
-
-            @include media-min-large {
-              display: inline-block;
-              padding: .75rem 3rem;
-              border: 4px solid rgba($white, 0.25);
-              margin: 0 0 1rem;
-            }
+            line-height: 1;
+            font-weight: 300;
+            padding-bottom: 1rem;
+            border-bottom: 4px solid rgba($white, 0.3);
+            margin-bottom: 1rem;
           }
 
           p {
@@ -867,6 +861,7 @@
             font-family: $sans;
             line-height: 1.2;
             margin: 5px 0;
+            font-weight: 300;
           }
 
           a {

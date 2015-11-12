@@ -6,11 +6,13 @@ console.log('Welcome to Home Church!');
   // Mobile nav control
   // --------------------------------------------------
     function mobileNav() {
+      function toggleNav() {
+        $('body').toggleClass('-mobile-nav-open');
+      }
       var control = $('.mobile--nav-control');
-      control.on('click', function(e) {
+      control.on('click tap', function(e) {
         e.preventDefault();
-        console.log('mobile-nav toggle');
-        $('body').toggleClass('--mobile-nav-open');
+        toggleNav();
       });
     }
 
