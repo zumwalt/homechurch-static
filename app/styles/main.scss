@@ -589,11 +589,13 @@
 
         // Control
         .mobile--nav-control {
-          z-index: 10;
+          z-index: 11;
           @include vertical-center;
           right: 1rem;
-          width: 20px;
-          height: 16px;
+          width: 40px;
+          height: 36px;
+          padding: 10px;
+
 
           @include media-min-smaller {
             right: 1.5rem;
@@ -612,8 +614,8 @@
             transition: all 0.4s ease;
 
             &:nth-child(1) {
-              top: 0;
-              left: 0;
+              top: 10px;
+              left: 10px;
             }
 
             &:nth-child(2),
@@ -622,8 +624,8 @@
             }
 
             &:nth-child(4) {
-              bottom: 0;
-              left: 0;
+              bottom: 10px;
+              left: 10px;
             }
           }
         }
