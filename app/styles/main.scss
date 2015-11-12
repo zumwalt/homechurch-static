@@ -290,6 +290,10 @@
     // Paragraphs, copy blocks
     // --------------------------------------------------
       p {
+        line-height: 1.5;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
         &:first-of-type {
           margin-top: 0;
         }
@@ -331,6 +335,11 @@
         padding: .5rem .75rem;
         width: 100%;
         font-family: $sans;
+
+        &:focus {
+          box-shadow: 0;
+          outline: 0;
+        }
       }
 
       label {
@@ -1004,9 +1013,25 @@
         background: $white;
         color: $black;
 
+        .global--header {
+          position: static;
+        }
+
         .mailing-list {
           background: $white;
           color: $black;
+
+          p {
+            color: $black;
+          }
+
+          input {
+            border: 1px solid rgba(black, 0.25);
+
+            &:focus {
+              border-color: rgba(black, 0.75);
+            }
+          }
         }
       }
 
@@ -1015,16 +1040,49 @@
 
         h1 {
           font-weight: 400;
+          font-style: italic;
+
+          @include media-min-large {
+            font-size: 5.5rem;
+          }
         }
       }
 
       .view-content {
+
+        > p {
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+
+          @include media-min-small {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+          }
+
+          @include media-min-medium {
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+          }
+        }
 
         .break {
           text-align: center;
           font-family: $sans;
           font-weight: 600;
           color: $gold;
+
+          @include media-min-small {
+            font-size: 1.5rem;
+          }
+
+          @include media-min-medium {
+            font-size: 2rem;
+          }
         }
       }
 
@@ -1035,19 +1093,48 @@
         color: $white;
         text-align: center;
 
+        &:nth-child(2n+1) {
+          background: $black;
+        }
+
+        @include media-min-smaller {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+          margin-top: 2rem;
+          margin-bottom: 2rem;
+        }
+
         small {
+          display: block;
           color: rgba($white, 0.6);
           font-family: $sans;
           font-weight: 600;
+          margin: 0 0 .5rem;
+        }
+        
+        p + small {
+          margin: .5rem 0 0;
         }
 
         p {
           font-family: $display;
           font-size: 1.5rem;
           line-height: 1.2;
-        }
+          font-style: italic;
 
-        &:nth-child(2n+1) {
-          background: $black;
+          @include media-min-smaller {
+            font-size: 1.75rem;
+          }
+
+          @include media-min-small {
+            font-size: 2.25rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          @include media-min-medium {
+            font-size: 3rem;
+          }
         }
       }
