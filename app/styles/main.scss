@@ -407,6 +407,10 @@
             height: 65px;
             width: 114px;
           }
+
+          @include media-min-large {
+            margin-right: 50px;
+          }
         }
 
       // Nav
@@ -571,7 +575,10 @@
       // Footer
       // --------------------------------------------------
         .global--footer {
-
+          @include media-min-medium {
+            clear: both;
+            padding: 2rem 0;
+          }
         }
 
         .nav-footer {
@@ -599,18 +606,38 @@
           padding: 0;
         }
 
-        .hero--statement {
+        > div {
           @include media-min-large {
             width: 50vw;
-            height: 60vw;
+            max-height: none;
+            height: 95vh;
             float: left;
+            min-height: 700px;
+          }
+        }
+
+        .hero--statement {
+          @include media-min-large {
             padding: calc(10vw + 3rem) 3rem 3rem;
+            position: relative;
+          }
+
+          .content {
+            @include media-min-large {
+              @include vertical-center;
+              width: 100%;
+              padding: 0 3rem;
+              left: 0;
+            }
+
+            .title {
+              text-shadow: 0 2px 4px rgba(black, 1 );
+            }
           }
         }
 
         .hero--action {
           display: inline-block;
-          // background: rgba(black, 0.15);
           border-radius: 3px;
           margin-top: 1rem;
           font-size: 1.175rem;
@@ -641,10 +668,6 @@
         }
 
         @include media-min-large {
-          width: 50vw;
-          max-height: none;
-          height: 60vw;
-          float: left;
           margin: 0 !important;
         }
 
@@ -678,6 +701,10 @@
             font-size: 1.5rem;
           }
 
+          @include media-min-large {
+            text-align: center;
+          }
+
           .title {
             font-size: 2.125rem;
 
@@ -687,6 +714,13 @@
 
             @include media-min-medium {
               font-size: 3.5rem;
+            }
+
+            @include media-min-large {
+              display: inline-block;
+              padding: .75rem 3rem;
+              border: 4px solid rgba($white, 0.25);
+              margin: 0 0 1rem;
             }
           }
 
@@ -711,29 +745,55 @@
           @include clearfix;
         }
 
+        @include media-min-medium {
+          width: 66.6666667vw;
+          float: left;
+        }
+
         a {
           display: block;
           padding: 0 1rem;
           line-height: 4rem;
+          height: 4rem;
           font-size: 1.375rem;
           color: $white;
+          position: relative;
+          overflow: hidden;
+
+          &:after {
+            content: '';
+            background: linear-gradient(45deg, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0) 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: scale(1.2);
+          }
+
+          &:hover {
+            &:after {
+              opacity: 0.5;
+              transform: scale(1);
+            }
+          }
 
           @include media-min-smaller {
             padding: 0 1.5rem;
             float: left;
+            width: 50vw;
+            text-align: center;
           }
 
-          &.nav-about {
-            @include media-min-smaller {
-              width: 70%;
-            }
+          @include media-min-small {
+            height: 15rem;
+            line-height: 15rem;
           }
 
-          &.nav-giving {
-            @include media-min-smaller {
-              width: 30%;
-              text-align: center;
-            }
+          @include media-min-medium {
+            width: 50%;
           }
         }
 
@@ -758,12 +818,26 @@
         height: 50vw;
         position: relative;
 
+        @include media-min-medium {
+          float: left;
+          width: 33.3333333vw;
+          height: 15em;
+        }
+
         .headshot {
           width: 50vw;
           height: 50vw;
           background-size: cover;
           background-position: center center;
           opacity: 0.75;
+
+          @include media-min-medium {
+            @include vertical-center;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0.5;
+          }
         }
 
         .content {
@@ -777,6 +851,14 @@
 
           @include media-min-small {
             font-size: 1.5rem;
+          }
+
+          @include media-min-medium {
+            width: 50%;
+            left: 50%;
+            z-index: 2;
+            font-size: 1.15rem;
+            padding: 1rem;
           }
 
           small {
@@ -803,10 +885,6 @@
 
             @include media-min-small {
               font-size: 1.175rem;
-            }
-
-            @include media-min-medium {
-              font-size: 1.5rem;
             }
           }
         }
